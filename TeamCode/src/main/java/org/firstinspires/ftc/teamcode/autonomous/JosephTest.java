@@ -19,7 +19,7 @@ public class JosephTest extends LinearOpMode {
     DcMotor roller;
     // this is stating the hardware for the shooting motor
     DcMotor shooter;
-    // This is stating the hardware for the wobble foal grabber servo\
+    // This is stating the hardware for the wobble foal grabber servo
     Servo WobbleGrabber;
     // this is stating the hardware for the servo that is used for controling the launch ring
     Servo postitioner;
