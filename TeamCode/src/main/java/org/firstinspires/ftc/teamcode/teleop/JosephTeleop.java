@@ -71,27 +71,19 @@ public class JosephTeleop extends OpMode {
         else {
             pulleyBoi.setPower(0);
         }
-
-        // Wobble goal grabber
-        if (gamepad1.y){
-            wobbleGrabber.setPosition(1);
-        }
-        else {
-            wobbleGrabber.setPosition(0);
-        }
-
+        
         //Wobble lift
             if (gamepad1.a){
             wobbleLift.setPower(.5);
         }
         if (gamepad1.y) {
-            wobbleGrabber.setPosition(1); // grab the wobble goal; grab position
+            wobbleGrabber.setPosition(1);
         } else {
-            wobbleGrabber.setPosition(0); // neutral position
+            wobbleGrabber.setPosition(0);
         }
         // lift
         if (gamepad1.a) {
-            wobbleLift.setPower(0.5); // lowers wobble goal
+            wobbleLift.setPower(0.5);
         } else if (gamepad1.x) {
             wobbleLift.setPower(-0.5); // lifts wobble goal
         } else {
