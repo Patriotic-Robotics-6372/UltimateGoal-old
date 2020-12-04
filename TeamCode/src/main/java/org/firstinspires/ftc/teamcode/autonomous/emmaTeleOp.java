@@ -20,7 +20,9 @@ public class emmaTeleOp extends OpMode {
 
     //Outtake
     DcMotor shoot;
+    DcMotor roller;
     Servo positioner;
+
 
     @Override
     public void init() {
@@ -64,7 +66,7 @@ public class emmaTeleOp extends OpMode {
         // drawbridge
         if (gamepad1.dpad_up) {
             pulleyBoi.setPower(1); //bring the box thing up
-        } else (gamepad1.dpad_down) {
+        } else if (gamepad1.dpad_down) {
                 pulleyBoi.setPower(-1); // bring the  box thing down
         } else{
             pulleyBoi.setPower(0);
