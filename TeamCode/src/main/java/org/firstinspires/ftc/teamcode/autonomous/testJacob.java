@@ -42,10 +42,7 @@ public class testJacob extends LinearOpMode {
 
         waitForStart();
 
-        frontLeft.setPower(-0.5);
-        frontRight.setPower(0.5);
-        backLeft.setPower(-0.5);
-        backRight.setPower(0.5);
+        forward(0.5);
 
         sleep(3500);
 
@@ -53,5 +50,27 @@ public class testJacob extends LinearOpMode {
         frontRight.setPower(0);
         backLeft.setPower(0);
         backRight.setPower(0);
+
+        forward(0.3);
+        sleep(2000);
+
+        backward(0.3);
+
+
     }
+    
+    public void forward(double power) {
+       frontLeft.setPower(-power);
+       frontRight.setPower(power);
+       backLeft.setPower(-power);
+       backRight.setPower(power);
+    }
+
+    public void backward(double power) {
+        frontLeft.setPower(power);
+        frontRight.setPower(-power);
+        backLeft.setPower(power);
+        backRight.setPower(-power);
+    }
+
 }
