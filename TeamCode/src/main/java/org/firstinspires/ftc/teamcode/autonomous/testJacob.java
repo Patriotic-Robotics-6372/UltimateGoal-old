@@ -9,7 +9,7 @@ import com.qualcomm.robotcore.hardware.Servo;
 @Autonomous (name = "testJacob")
 public class testJacob extends LinearOpMode {
 
-    // Name our hardware -> variables
+    // Name our hardware -> variables             
 
     // Motors for the base
     DcMotor frontLeft, frontRight, backLeft, backRight;
