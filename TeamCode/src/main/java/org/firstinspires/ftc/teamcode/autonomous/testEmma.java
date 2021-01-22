@@ -47,7 +47,7 @@ public class testEmma extends LinearOpMode {
         backLeft.setPower(-0.5);
         backRight.setPower(0.5);
 
-        sleep(milliseconds 3500);
+        sleep(3500);
 
         frontLeft.setPower(0);
         frontRight.setPower(0);
