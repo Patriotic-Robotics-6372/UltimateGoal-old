@@ -27,7 +27,7 @@ public class WobbleGoal {
     }
 
     //WobbleLift Stop
-    public void stopmotor(double power){
+    public void stopmotor(){
         wobbleLift.setPower(0);
     }
 
@@ -46,7 +46,7 @@ public class WobbleGoal {
     }
 
     //Wobblegrabbers stop
-    public void stopservos(double power){
+    public void stopservos(){
         wobbleGrabber.setPower(0);
         wobbleGrabber2.setPower(0);
     }
