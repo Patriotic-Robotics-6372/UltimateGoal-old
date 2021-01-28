@@ -21,7 +21,7 @@ public class WobblegoalTest extends OpMode {
         public void loop() {
             // this is telling the robot to grab the wobble goal
             if (gamepad1.y){
-                wobbleGoal.grab(.5);
+                wobbleGoal.grab(.5); 
             }else{
                 wobbleGoal.stopservos();
             }
@@ -33,9 +33,6 @@ public class WobblegoalTest extends OpMode {
             }else{
                 wobbleGoal.stopmotor();
             }
-
-
-
 
 
 
