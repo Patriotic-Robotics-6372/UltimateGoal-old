@@ -13,6 +13,8 @@ public class WobbleGoal {
     // Characteristics
     private DcMotor wobbleLift;
     private CRServo wobbleGrabber,wobbleGrabber2;
+    private double liftPower = 1;
+    private double grabberPower = 1;
     // Constructor
 
     /**
@@ -30,15 +32,15 @@ public class WobbleGoal {
     /**
      * By having a positive power the lift should pull the drawslide up
      */
-    public void up(double power){
-        wobbleLift.setPower(power);
+    public void up(){
+        wobbleLift.setPower(liftPower);
     }
 
     /**
      * By having a negative power the lift should make the drawslide go down
      */
-    public void down(double power){
-        wobbleLift.setPower(-power);
+    public void down(){
+        wobbleLift.setPower(-liftPower);
     }
 
     /**
@@ -52,18 +54,18 @@ public class WobbleGoal {
      * Telling the grabbing mechanism to close onto the wobble goal
      */
 
-    public void grab(double power){
-        wobbleGrabber.setPower(power);
-        wobbleGrabber2.setPower(-power);
+    public void grab(){
+        wobbleGrabber.setPower(grabberPower);
+        wobbleGrabber2.setPower(-grabberPower);
     }
 
     /**
      * Telling the grabbing mechanism to let go of the wobble goal
      */
 
-    public void letGo(double power){
-        wobbleGrabber.setPower(-power);
-        wobbleGrabber2.setPower(power);
+    public void letGo(){
+        wobbleGrabber.setPower(-grabberPower);
+        wobbleGrabber2.setPower(grabberPower);
     }
 
     /**

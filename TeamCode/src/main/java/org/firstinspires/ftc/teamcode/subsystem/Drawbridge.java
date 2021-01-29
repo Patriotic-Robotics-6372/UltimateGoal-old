@@ -10,7 +10,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 public class Drawbridge {
 
     private DcMotor pulleyBoi;
-    private double power;
+    private double power = 1;
 
     /**
      * Defines the parts needed for the subsystem

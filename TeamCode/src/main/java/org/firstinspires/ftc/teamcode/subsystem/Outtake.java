@@ -48,10 +48,9 @@ public class Outtake {
 
     /**
      * sets the posistioner to the right place
-     * @param power
      */
 
-    public void positioner(double power){
+    public void positioner(){
         positioner.setPosition(posRing);
     }
 
@@ -64,11 +63,14 @@ public class Outtake {
         positioner.setPosition(posRing2);
     }
 
+    public void setPower(double power) {
+        this.power = power;
+    }
+
     public DcMotor getshoot() {return shoot;}
     public Servo getpositioner() {return positioner;}
 
-
-
-
-
+    public double getPower() {
+        return power;
+    }
 }
