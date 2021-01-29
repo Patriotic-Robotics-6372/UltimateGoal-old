@@ -64,12 +64,8 @@ public class Outtake {
         positioner.setPosition(posRing2);
     }
 
-
-
-
-
-
-
+    public DcMotor getshoot() {return shoot;}
+    public Servo getpositioner() {return positioner;}
 
 
 
