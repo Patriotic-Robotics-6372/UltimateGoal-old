@@ -3,53 +3,81 @@ package org.firstinspires.ftc.teamcode.subsystem;
 import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
-// Joseph Campos Date: 1/15/2021
+
+/**
+ * Date: 1/28/2021
+ * Author: Joseph Campos
+ * Wobble Goal subsystem
+ */
 public class WobbleGoal {
     // Characteristics
     private DcMotor wobbleLift;
     private CRServo wobbleGrabber,wobbleGrabber2;
     // Constructor
 
+    /**
+     * Sets up the subsystem
+     * @param WL
+     * @param WG1
+     * @param WG2
+     */
     public WobbleGoal(DcMotor WL, CRServo WG1, CRServo WG2){
         wobbleLift = WL;
         wobbleGrabber = WG1;
         wobbleGrabber2 = WG2;
     }
 
-    //WobbleLift going up
+    /**
+     * By having a positive power the lift should pull the drawslide up
+     */
     public void up(double power){
         wobbleLift.setPower(power);
     }
 
-    //WobbleLift going down
+    /**
+     * By having a negative power the lift should make the drawslide go down
+     */
     public void down(double power){
         wobbleLift.setPower(-power);
     }
 
-    //WobbleLift Stop
+    /**
+     * By setting the power to zero the lift will stop
+     */
     public void stopmotor(){
         wobbleLift.setPower(0);
     }
 
-    //Wobblegrabber close
+    /**
+     * Telling the grabbing mechanism to close onto the wobble goal
+     */
 
     public void grab(double power){
         wobbleGrabber.setPower(power);
         wobbleGrabber2.setPower(-power);
     }
 
-    //Wobblegrabber open
+    /**
+     * Telling the grabbing mechanism to let go of the wobble goal
+     */
 
     public void letGo(double power){
         wobbleGrabber.setPower(-power);
         wobbleGrabber2.setPower(power);
     }
 
-    //Wobblegrabbers stop
+    /**
+     * stoping the
+     */
     public void stopservos(){
         wobbleGrabber.setPower(0);
         wobbleGrabber2.setPower(0);
     }
+
+    public DcMotor getWobbleLift() {return  wobbleLift;}
+    public CRServo getWobbleGrabber() {return wobbleGrabber;}
+    public CRServo getWobbleGrabber2() {return wobbleGrabber2; }
+
 
 // Do you see this if you do it worked
 
