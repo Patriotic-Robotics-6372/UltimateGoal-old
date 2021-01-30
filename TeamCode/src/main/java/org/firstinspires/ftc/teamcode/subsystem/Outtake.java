@@ -9,13 +9,11 @@ import com.qualcomm.robotcore.hardware.Servo;
  * Author: Joseph Campos
  * Outtake Subsystem
  */
-public class Outtake {
+public class Outtake implements Constants {
 
     private DcMotor shoot;
     private Servo positioner;
-    private double power = 1;
-    private double posRing = 30 / 180;
-    private double posRing2 = 0/ 180;
+    private double power;
 
     /**
      * sets up the subsystem
@@ -31,7 +29,6 @@ public class Outtake {
      * A set power for the shooter motor
      * @param power
      */
-
     public void shoot(double power) {
         shoot.setPower(power);
 
@@ -41,15 +38,13 @@ public class Outtake {
      * Makes the shooter motor stop
      * @param power
      */
-
     public void stop(double power){
-        shoot.setPower(0);
+        shoot.setPower(STOP);
     }
 
     /**
      * sets the posistioner to the right place
      */
-
     public void positioner(){
         positioner.setPosition(posRing);
     }
@@ -59,7 +54,7 @@ public class Outtake {
      * @param power
      */
 
-    public void posreset(double power){
+    public void posReset(double power){
         positioner.setPosition(posRing2);
     }
 
@@ -67,8 +62,9 @@ public class Outtake {
         this.power = power;
     }
 
-    public DcMotor getshoot() {return shoot;}
-    public Servo getpositioner() {return positioner;}
+    public DcMotor getShoot() { return shoot; }
+
+    public Servo getPositioner() { return positioner; }
 
     public double getPower() {
         return power;

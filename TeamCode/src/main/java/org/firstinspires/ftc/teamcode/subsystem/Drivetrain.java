@@ -10,19 +10,11 @@ import org.firstinspires.ftc.robotcore.external.Telemetry;
  * Author: Jacob Marinas
  * The drivetrain subsystem
  */
-public class Drivetrain {
+public class Drivetrain implements Constants {
 
     private DcMotor frontLeft, frontRight, backLeft, backRight;
-    private double power, speedPercentage;
-    private double TICKS_PER_IN = 1120/(4*Math.PI);
+    private double power;
     public int fLTickGoal, fRTickGoal, bLTickGoal, bRTickGoal;
-    private int STOP = 0;
-
-    Telemetry telemetry;
-
-    public enum DIRECTION {
-        LEFT, RIGHT
-    }
 
     /**
      * Defines the parts needed for the subsystem
@@ -50,10 +42,6 @@ public class Drivetrain {
         backLeft.setDirection(DcMotorSimple.Direction.FORWARD);
 
         power = STOP;
-    }
-
-    public void setTelemetry(Telemetry telemetry) {
-        this.telemetry = telemetry;
     }
 
     /**
@@ -188,7 +176,7 @@ public class Drivetrain {
      * @param dir direction to turn
      * @param inches distance
      */
-    public void pivotTurn(DIRECTION dir, double inches) {
+    public void pivotTurn(Status dir, double inches) {
         switch (dir) {
             case LEFT:
                 drive(0, -inches, 0, -inches, power, power, power, power);
@@ -204,7 +192,7 @@ public class Drivetrain {
      * @param dir direction to turn
      * @param inches distance
      */
-    public void pointTurn(DIRECTION dir, double inches) {
+    public void pointTurn(Status dir, double inches) {
         switch (dir) {
             case LEFT:
                 drive(inches, -inches, inches, -inches, power, power, power, power);
@@ -219,7 +207,7 @@ public class Drivetrain {
      * Basic point turn by power variable
      * @param dir direction to turn
      */
-    public void pointTurn(DIRECTION dir) {
+    public void pointTurn(Status dir) {
         switch (dir) {
             case LEFT:
                 setBase(0, -power, 0, -power);
@@ -234,7 +222,7 @@ public class Drivetrain {
      * Basic pivot turn by power variable
      * @param dir direction to turn
      */
-    public void pivotTurn(DIRECTION dir) {
+    public void pivotTurn(Constants.Status dir) {
         switch (dir) {
             case LEFT:
                 setBase(power, -power, power, -power);

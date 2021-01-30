@@ -9,12 +9,12 @@ import com.qualcomm.robotcore.hardware.Servo;
  * Author: Joseph Campos
  * Wobble Goal subsystem
  */
-public class WobbleGoal {
+public class WobbleGoal implements Constants {
     // Characteristics
     private DcMotor wobbleLift;
     private CRServo wobbleGrabber,wobbleGrabber2;
-    private double liftPower = 1;
-    private double grabberPower = 1;
+    private double liftPower;
+    private double grabberPower;
     // Constructor
 
     /**
@@ -46,8 +46,8 @@ public class WobbleGoal {
     /**
      * By setting the power to zero the lift will stop
      */
-    public void stopmotor(){
-        wobbleLift.setPower(0);
+    public void stopMotor(){
+        wobbleLift.setPower(STOP);
     }
 
     /**
@@ -69,48 +69,32 @@ public class WobbleGoal {
     }
 
     /**
-     * stoping the
+     * Stoping the servos
      */
-    public void stopservos(){
-        wobbleGrabber.setPower(0);
-        wobbleGrabber2.setPower(0);
+    public void stopServos(){
+        wobbleGrabber.setPower(STOP);
+        wobbleGrabber2.setPower(STOP);
     }
 
-    public DcMotor getWobbleLift() {return  wobbleLift;}
-    public CRServo getWobbleGrabber() {return wobbleGrabber;}
-    public CRServo getWobbleGrabber2() {return wobbleGrabber2; }
+    public void setGrabberPower(double power) {
+        this.grabberPower = power;
+    }
 
+    public double getGrabberPower() {
+        return grabberPower;
+    }
 
-// Do you see this if you do it worked
+    public void setLiftPower(double power) {
+        this.liftPower = power;
+    }
 
+    public double getLiftPower() {
+        return liftPower;
+    }
 
+    public DcMotor getWobbleLift() { return wobbleLift; }
 
+    public CRServo getWobbleGrabber() { return wobbleGrabber; }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    public CRServo getWobbleGrabber2() { return wobbleGrabber2; }
 }

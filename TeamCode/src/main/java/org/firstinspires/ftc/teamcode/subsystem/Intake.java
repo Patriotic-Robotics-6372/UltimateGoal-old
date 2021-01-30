@@ -7,10 +7,10 @@ import com.qualcomm.robotcore.hardware.DcMotor;
  * Author: Jacob Marinas
  * The intake subsystem
  */
-public class Intake {
+public class Intake implements Constants {
 
     private DcMotor roller;
-    private double power = 1;
+    private double power;
 
     /**
      * Defines the parts needed for the subsystem
@@ -38,7 +38,7 @@ public class Intake {
      * Stops the intake
      */
     public void stop(){
-        roller.setPower(0);
+        roller.setPower(STOP);
     }
 
     /**
@@ -53,5 +53,9 @@ public class Intake {
      */
     public double getPower() {
         return power;
+    }
+
+    public DcMotor getRoller() {
+        return roller;
     }
 }

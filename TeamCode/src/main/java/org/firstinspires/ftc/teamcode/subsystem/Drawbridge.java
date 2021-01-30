@@ -7,10 +7,10 @@ import com.qualcomm.robotcore.hardware.DcMotor;
  * Author: Jacob Marinas
  * The drawbridge subsystem
  */
-public class Drawbridge {
+public class Drawbridge implements Constants {
 
     private DcMotor pulleyBoi;
-    private double power = 1;
+    private double power;
 
     /**
      * Defines the parts needed for the subsystem
@@ -38,7 +38,7 @@ public class Drawbridge {
      * Stops the drawbridge mchanism
      */
     public void stop() {
-        pulleyBoi.setPower(0);
+        pulleyBoi.setPower(STOP);
     }
 
     /**
@@ -53,5 +53,36 @@ public class Drawbridge {
      */
     public double getPower() {
         return power;
+    }
+
+    /**
+     * Increase power variable
+     */
+    public void increasePower() {
+        power += .1;
+        checkPower();
+    }
+
+    /**
+     * Decrease power variable
+     */
+    public void decreasePower() {
+        power -= .1;
+        checkPower();
+    }
+
+    /**
+     * Helper method to keep power variable between 0 - 1
+     */
+    private void checkPower() {
+        if (power > 1) {
+            power = 1;
+        } else if (power < 0) {
+            power = 0;
+        }
+    }
+
+    public DcMotor getPulleyBoi() {
+        return pulleyBoi;
     }
 }

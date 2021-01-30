@@ -5,20 +5,30 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import org.firstinspires.ftc.teamcode.subsystem.Drivetrain;
+import org.firstinspires.ftc.teamcode.subsystem.Telem;
 
-@Autonomous(name = "DrivetrainTest")
+/**
+ * Date: 1/29/21
+ * Test program for Drivetrain subsystem
+ * @author Jacob Marinas
+ */
+@Autonomous(name = "DrivetrainTest", group = "Test")
 public class DrivetrainTest extends LinearOpMode {
 
     Drivetrain drive = new Drivetrain(hardwareMap.dcMotor.get("frontLeft"),
             hardwareMap.dcMotor.get("frontRight"),
             hardwareMap.dcMotor.get("backLeft"),
             hardwareMap.dcMotor.get("backRight"));
+    //Telem telem = new Telem(drive, telemetry);
 
     @Override
     public void runOpMode() throws InterruptedException {
         drive.useBrake(true);
         drive.useEncoders(true);
         drive.setPower(0.5);
+        telemetry.addData("Desc", "This programs tests for the Drivetrain class")
+                .addData("How to Use", "Tank drive. Sticks for basic movement. Buttons for encoder movement");
+        telemetry.update();
         waitForStart();
         while (opModeIsActive()) {
             if (gamepad1.left_stick_y > .1 || gamepad1.right_stick_y > .1) {
@@ -35,10 +45,10 @@ public class DrivetrainTest extends LinearOpMode {
                 drive.backward(5);
             }
             if (gamepad1.x) {
-                drive.pointTurn(Drivetrain.DIRECTION.LEFT, 3);
+                drive.pointTurn(Drivetrain.Status.LEFT, 3);
             }
             if (gamepad1.y) {
-                drive.pointTurn(Drivetrain.DIRECTION.RIGHT, 3);
+                drive.pointTurn(Drivetrain.Status.RIGHT, 3);
             }
 
             telemetry.addLine()
@@ -54,7 +64,6 @@ public class DrivetrainTest extends LinearOpMode {
                     .addData("bRPower", drive.getBackRight().getPower())
                     .addData("bREnc", drive.getBackRight().getCurrentPosition());
             telemetry.update();
-
         }
     }
 }
